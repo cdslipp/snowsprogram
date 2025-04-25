@@ -233,6 +233,13 @@
     width: 100%;
     background-color: black;
     color: white;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
   
   /* Individual snap sections */
@@ -240,6 +247,7 @@
     scroll-snap-align: start;
     scroll-snap-stop: always;
     height: 100vh;
+    position: relative;
   }
   
   @media (max-width: 768px) {
