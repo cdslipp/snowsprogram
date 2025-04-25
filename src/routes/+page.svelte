@@ -112,7 +112,7 @@
     </div>
     <div class="relative z-10 px-4 max-w-3xl">
       {#if currentSection === 2}
-        <div class="bg-gray-900 rounded-lg p-8" in:fly={{ y: 50, duration: 500 }}>
+        <div class="text-center p-8" in:fly={{ y: 50, duration: 500 }}>
           <p class="text-gray-300 italic font-light">
             With gratitude and appreciation, we acknowledge that we live, learn, and work within the boundaries of what is known colonially as the Haldimand Tract, which includes six miles on each side of the Grand River. This is the traditional territory of the Chonnonton, Anishinaabeg (Ojibway, Mississauga, Chippewa, and Algonquin), and Haudenosaunee Confederacy (Six Nations including the Mohawk, Cayuga, Onondaga, Seneca, Oneida, and Tuscarora Nations).
           </p>
@@ -157,12 +157,12 @@
             </div>
             <div>
               <p class="text-gray-300">
-                <span class="font-light">Lighting Design by</span> <span class="font-bold">Cameron Slipp</span>
+                <span class="font-light">Lighting Designer</span> <span class="font-bold">Cameron Slipp</span>
               </p>
             </div>
             <div>
               <p class="text-gray-300">
-                <span class="font-light">Stage Management</span> <span class="font-bold">Paula Bornacelli</span>
+                <span class="font-light">Stage Manager</span> <span class="font-bold">Paula Bornacelli</span>
               </p>
             </div>
             <div>
