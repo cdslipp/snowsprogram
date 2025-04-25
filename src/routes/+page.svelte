@@ -171,6 +171,10 @@
               </p>
             </div>
           </div>
+          <hr class="w-24 mx-auto border-gray-600 my-8">
+          <div class="text-gray-300 italic">
+            <p>Please join us after the show for a talkback.</p>
+          </div>
         </div>
       {/if}
     </div>
@@ -220,8 +224,6 @@
         <!-- Navigation Links -->
         <div class="flex justify-center mb-8">
           <div class="flex space-x-4 md:space-x-8 text-sm md:text-base">
-            <button class="hover:underline" onclick={() => scrollToSection(0)}>Cover</button>
-            <span>|</span>
             <button class="hover:underline" onclick={() => scrollToSection(1)}>Synopsis</button>
             <span>|</span>
             <button class="hover:underline" onclick={() => scrollToSection(2)}>Land Acknowledgement</button>
@@ -260,6 +262,22 @@
     left: 0;
     right: 0;
     bottom: 0;
+    touch-action: pan-y pinch-zoom;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Prevent scrolling beyond bounds on iOS */
+  @supports (-webkit-touch-callout: none) {
+    .scroll-container {
+      height: -webkit-fill-available;
+    }
+    
+    :global(body) {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
   }
   
   /* Individual snap sections */
