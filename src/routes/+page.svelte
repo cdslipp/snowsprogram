@@ -182,44 +182,64 @@
   </section>
 
   <!-- Special Thanks Section -->
-  <section id="section4" class="section snap-section flex items-center">
-    <div class="max-w-3xl mx-auto px-4 py-12 w-full">
-      {#if currentSection === 4}
-        <div class="mb-12" in:fly={{ y: 50, duration: 500 }}>
-          <h3 class="text-lg font-semibold mb-4">Funded by</h3>
-          <div class="grid grid-cols-2 gap-8">
-            <div class="flex items-center justify-center">
-              <img src="/OAC_Logo_white.png" alt="Ontario Arts Council" class="max-h-16 w-auto">
-            </div>
-            <div class="flex items-center justify-center">
-              <img src="/incite.png" alt="Incite" class="max-h-16 w-auto">
-            </div>
-          </div>
-        </div>
-        <!-- Special Thanks -->
-        <div class="mb-8 bg-white text-black rounded-lg p-8" in:fly={{ y: 50, duration: 500, delay: 200 }}>
-          <h3 class="text-lg font-semibold mb-4">Special Thanks</h3>
-          <div class="grid grid-cols-3 gap-8">
-            <div class="flex items-center justify-center">
-              <img src="/mtspace.svg" alt="MT Space" class="max-h-16 w-auto">
-            </div>
-            <div class="flex items-center justify-center">
-              <img src="/creativecoop.png" alt="Creative Coop" class="max-h-16 w-auto">
-            </div>
-            <div class="flex items-center justify-center">
-              <img src="/registry.jpg" alt="Registry Theatre" class="max-h-16 w-auto">
+  <section id="section4" class="section snap-section flex flex-col justify-between">
+    <div class="flex-grow flex items-center">
+      <div class="max-w-3xl mx-auto px-4 py-8 w-full">
+        {#if currentSection === 4}
+          <div class="mb-12" in:fly={{ y: 50, duration: 500 }}>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-8 text-center">Funded by</h3>
+            <div class="flex flex-col items-center space-y-8">
+              <div class="flex items-center justify-center">
+                <img src="/OAC_Logo_white.png" alt="Ontario Arts Council" class="max-h-24 w-auto">
+              </div>
+              <div class="flex items-center justify-center">
+                <img src="/incite.png" alt="Incite" class="max-h-24 w-auto">
+              </div>
             </div>
           </div>
+        {/if}
+      </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="bg-white text-black p-8 w-full mt-auto" in:fly={{ y: 50, duration: 500, delay: 200 }}>
+      <div class="max-w-3xl mx-auto">
+        <h3 class="text-lg font-semibold mb-6">Special Thanks</h3>
+        <div class="grid grid-cols-3 gap-8 mb-10">
+          <div class="flex items-center justify-center">
+            <img src="/mtspace.svg" alt="MT Space" class="max-h-16 w-auto">
+          </div>
+          <div class="flex items-center justify-center">
+            <img src="/creativecoop.png" alt="Creative Coop" class="max-h-16 w-auto">
+          </div>
+          <div class="flex items-center justify-center">
+            <img src="/registry.jpg" alt="Registry Theatre" class="max-h-16 w-auto">
+          </div>
         </div>
-
-        <!-- Footer -->
-        <div class="text-center text-gray-800 text-sm font-light bg-white rounded-lg p-8" in:fly={{ y: 50, duration: 500, delay: 400 }}>
+        
+        <!-- Navigation Links -->
+        <div class="flex justify-center mb-8">
+          <div class="flex space-x-4 md:space-x-8 text-sm md:text-base">
+            <button class="hover:underline" onclick={() => scrollToSection(0)}>Cover</button>
+            <span>|</span>
+            <button class="hover:underline" onclick={() => scrollToSection(1)}>Synopsis</button>
+            <span>|</span>
+            <button class="hover:underline" onclick={() => scrollToSection(2)}>Land Acknowledgement</button>
+            <span>|</span>
+            <button class="hover:underline" onclick={() => scrollToSection(3)}>Credits</button>
+          </div>
+        </div>
+        
+        <!-- Separator -->
+        <hr class="border-gray-300 my-8">
+        
+        <div class="text-center">
           <div class="mb-4">
-            <img src="/totteringbiped.avif" alt="Tottering Biped" class="h-8 w-auto mx-auto">
+            <img src="/totteringbiped.avif" alt="Tottering Biped" class="h-10 w-auto mx-auto">
           </div>
           <p>© 2024 Tottering Biped</p>
         </div>
-      {/if}
+      </div>
     </div>
   </section>
 </div>
