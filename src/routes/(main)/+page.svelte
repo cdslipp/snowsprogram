@@ -104,7 +104,7 @@
 	<section id="section0" class="section snap-section relative flex items-center justify-center">
 		<div class="relative flex h-full w-full items-center justify-center">
 			<img
-				src="/tc-coverjune.jpg"
+				src="/cover.webp"
 				alt="Sometimes It Snows In April"
 				class="max-h-full max-w-full object-contain"
 				in:fade={{ duration: 1000 }}
@@ -140,7 +140,7 @@
 	>
 		<div class="absolute inset-0 z-0">
 			<img
-				src="/tc-coverjune.jpg"
+				src="/cover.webp"
 				alt="Background"
 				class="h-full w-full object-cover opacity-20 blur-xl filter"
 			/>
@@ -186,7 +186,7 @@
 	<section id="section2" class="section snap-section relative flex items-center justify-center">
 		<div class="absolute inset-0 z-0">
 			<img
-				src="/tc-coverjune.jpg"
+				src="/cover.webp"
 				alt="Background"
 				class="h-full w-full object-cover opacity-20 blur-xl filter"
 			/>
@@ -324,7 +324,7 @@
 	<section id="section4" class="section snap-section relative flex items-center overflow-hidden">
 		<div class="absolute inset-0 z-0">
 			<img
-				src="/tc-coverjune.jpg"
+				src="/cover.webp"
 				alt="Background"
 				class="h-full w-full object-cover opacity-10 blur-xl filter"
 			/>
@@ -391,7 +391,7 @@
 	<section id="section5" class="section snap-section relative flex items-center justify-center">
 		<div class="absolute inset-0 z-0">
 			<img
-				src="/tc-coverjune.jpg"
+				src="/cover.webp"
 				alt="Background"
 				class="h-full w-full object-cover opacity-20 blur-xl filter"
 			/>
