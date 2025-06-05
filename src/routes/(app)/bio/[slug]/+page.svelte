@@ -18,7 +18,7 @@
 
 </script>
 
-<div class="min-h-screen bg-black text-white flex flex-col">
+<div class="min-h-screen bg-black text-white flex flex-col relative">
   <!-- Progress Bar -->
   <div class="fixed top-0 left-0 w-full h-1 bg-gray-900 z-50">
     <div class="h-full bg-gradient-to-r from-gray-400 to-white transition-all duration-500 ease-out" style="width: {progress}%"></div>
@@ -44,100 +44,86 @@
     </div>
   </div>
 
+  <!-- Scrollable Content Area -->
   {#if bio}
     {#key currentSlug}
-      <div class="container mx-auto px-4 pt-16 pb-32 flex-1">
-        <div class="max-w-4xl mx-auto">
-          <!-- Bio content card -->
-          <div class="bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-gray-800">
-          <!-- Header -->
-          <div class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">{bio.name}</h1>
-            <p class="text-xl text-gray-300 font-light">{bio.role}</p>
-          </div>
-          
-          <hr class="border-gray-700 my-8">
-          
-          <div class="prose prose-invert prose-lg max-w-none">
-            <p class="text-gray-300 leading-relaxed text-lg">{bio.bio}</p>
+      <div class="overflow-y-auto flex-1 pt-16 pb-24">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <!-- Bio content card -->
+            <div class="bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-gray-800">
+              <!-- Header -->
+              <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">{bio.name}</h1>
+                <p class="text-xl text-gray-300 font-light">{bio.role}</p>
+              </div>
+              
+              <hr class="border-gray-700 my-8">
+              
+              <div class="prose prose-invert prose-lg max-w-none">
+                <p class="text-gray-300 leading-relaxed text-lg">{bio.bio}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     {/key}
     
-    <!-- Fixed Navigation -->
-    <div class="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black to-transparent">
-      <div class="container mx-auto px-4 py-6">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-          <!-- Previous Bio / Back to Credits -->
-          <div class="w-1/3">
-            {#if prevBio}
-              <a 
-                href="/bio/{prevBio.id}" 
-                class="group flex items-center gap-3 p-4 rounded-lg bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-800 hover:border-gray-600 transition-all duration-300"
-              >
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                <div class="text-left hidden sm:block">
-                  <div class="text-xs text-gray-500 uppercase tracking-wide">Previous</div>
-                  <div class="text-white font-semibold group-hover:text-gray-200 transition-colors">{prevBio.name}</div>
-                  <div class="text-xs text-gray-400">{prevBio.role}</div>
-                </div>
-              </a>
-            {:else}
-              <a 
-                href="/#section3" 
-                class="group flex items-center gap-3 p-4 rounded-lg bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-800 hover:border-gray-600 transition-all duration-300"
-              >
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                <div class="text-left hidden sm:block">
-                  <div class="text-xs text-gray-500 uppercase tracking-wide">Back to</div>
-                  <div class="text-white font-semibold group-hover:text-gray-200 transition-colors">Credits</div>
-                </div>
-              </a>
-            {/if}
+    <!-- Snapchat-style Navigation -->
+    <div class="fixed bottom-0 left-0 right-0 h-24 flex pointer-events-none">
+      <!-- Previous Bio / Back to Credits -->
+      {#if prevBio}
+        <a 
+          href="/bio/{prevBio.id}" 
+          class="absolute left-0 bottom-0 w-1/2 h-full flex items-center justify-start pl-6 pointer-events-auto"
+          aria-label="Previous bio: {prevBio.name}"
+        >
+          <div class="bg-black/50 backdrop-blur-sm rounded-full p-3 border border-gray-800">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
           </div>
-
-          <!-- Center - empty space -->
-          <div class="flex-1"></div>
-
-          <!-- Next Bio / Go to Funders -->
-          <div class="w-1/3 flex justify-end">
-            {#if nextBio}
-              <a 
-                href="/bio/{nextBio.id}" 
-                class="group flex items-center gap-3 p-4 rounded-lg bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-800 hover:border-gray-600 transition-all duration-300"
-              >
-                <div class="text-right hidden sm:block">
-                  <div class="text-xs text-gray-500 uppercase tracking-wide">Next</div>
-                  <div class="text-white font-semibold group-hover:text-gray-200 transition-colors">{nextBio.name}</div>
-                  <div class="text-xs text-gray-400">{nextBio.role}</div>
-                </div>
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            {:else}
-              <a 
-                href="/#section5" 
-                class="group flex items-center gap-3 p-4 rounded-lg bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-800 hover:border-gray-600 transition-all duration-300"
-              >
-                <div class="text-right hidden sm:block">
-                  <div class="text-xs text-gray-500 uppercase tracking-wide">Next to</div>
-                  <div class="text-white font-semibold group-hover:text-gray-200 transition-colors">Funders</div>
-                </div>
-                <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </a>
-            {/if}
+        </a>
+      {:else}
+        <a 
+          href="/#section3" 
+          class="absolute left-0 bottom-0 w-1/2 h-full flex items-center justify-start pl-6 pointer-events-auto"
+          aria-label="Back to Credits"
+        >
+          <div class="bg-black/50 backdrop-blur-sm rounded-full p-3 border border-gray-800">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
           </div>
-        </div>
-      </div>
+        </a>
+      {/if}
+
+      <!-- Next Bio / Go to Funders -->
+      {#if nextBio}
+        <a 
+          href="/bio/{nextBio.id}" 
+          class="absolute right-0 bottom-0 w-1/2 h-full flex items-center justify-end pr-6 pointer-events-auto"
+          aria-label="Next bio: {nextBio.name}"
+        >
+          <div class="bg-black/50 backdrop-blur-sm rounded-full p-3 border border-gray-800">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
+      {:else}
+        <a 
+          href="/#section5" 
+          class="absolute right-0 bottom-0 w-1/2 h-full flex items-center justify-end pr-6 pointer-events-auto"
+          aria-label="Next to Funders"
+        >
+          <div class="bg-black/50 backdrop-blur-sm rounded-full p-3 border border-gray-800">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
+      {/if}
     </div>
   {:else}
     <div class="flex items-center justify-center flex-1">

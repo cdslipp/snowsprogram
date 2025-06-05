@@ -112,7 +112,7 @@
 		</div>
 		{#if showScrollIndicator}
 			<button
-				class="group absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
+				class="group absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
 				onclick={() => scrollToNext()}
 				aria-label="Scroll to next section"
 			>
@@ -161,7 +161,7 @@
 		</div>
 		{#if showScrollIndicator}
 			<button
-				class="group absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
+				class="group absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
 				onclick={() => scrollToNext()}
 				aria-label="Scroll to next section"
 			>
@@ -206,7 +206,7 @@
 			{/if}
 		</div>
 		<button
-			class="group absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
+			class="group absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
 			onclick={() => scrollToNext()}
 			aria-label="Scroll to next section"
 		>
@@ -260,11 +260,9 @@
 							</p>
 						</div>
 						<div>
-							<p class="text-gray-300">
+							<p class="font-bold text-gray-300">
 								<span class="font-light">Vocal Consultant</span>
-								<a href="/bio/fides" class="font-bold transition-colors hover:text-white"
-									>Fides Krucker</a
-								>
+								Fides Krucker
 							</p>
 						</div>
 						<div>
@@ -301,7 +299,7 @@
 		</div>
 		{#if showScrollIndicator}
 			<button
-				class="group absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
+				class="group absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
 				onclick={() => scrollToNext()}
 				aria-label="Scroll to next section"
 			>
@@ -369,7 +367,7 @@
 			{/if}
 		</div>
 		<button
-			class="group absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
+			class="group absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
 			onclick={() => scrollToNext()}
 			aria-label="Scroll to next section"
 		>
@@ -428,7 +426,7 @@
 			{/if}
 		</div>
 		<button
-			class="group absolute bottom-4 left-1/2 -translate-x-1/2 transform animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
+			class="group absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer p-2 md:bottom-8 md:p-0"
 			onclick={() => scrollToNext()}
 			aria-label="Scroll to next section"
 		>
@@ -480,32 +478,17 @@
 						</a>
 					</div>
 					<div class="flex items-center justify-center">
-						<a
-							href="https://mtspace.ca"
-							target="_blank"
-							rel="noopener"
-							class="block"
-						>
+						<a href="https://mtspace.ca" target="_blank" rel="noopener" class="block">
 							<img src="/mtspace.svg" alt="MT Space" class="h-16" />
 						</a>
 					</div>
 					<div class="flex items-center justify-center">
-						<a
-							href="https://creativecoop.ca"
-							target="_blank"
-							rel="noopener"
-							class="block"
-						>
+						<a href="https://creativecoop.ca" target="_blank" rel="noopener" class="block">
 							<img src="/creativecoop.png" alt="Creative Coop" class="h-16" />
 						</a>
 					</div>
 					<div class="flex items-center justify-center">
-						<a
-							href="https://registrytheatre.com"
-							target="_blank"
-							rel="noopener"
-							class="block"
-						>
+						<a href="https://registrytheatre.com" target="_blank" rel="noopener" class="block">
 							<img src="/registry.jpg" alt="Registry Theatre" class="h-16" />
 						</a>
 					</div>
@@ -555,14 +538,7 @@
 					</div>
 					<div class="space-y-2">
 						<p>© 2024 Tottering Biped</p>
-						<p class="text-xs text-gray-500">
-							Program created by <a
-								href="https://stagepage.app"
-								target="_blank"
-								rel="noopener"
-								class="transition-colors hover:text-gray-400">Stage Page</a
-							>
-						</p>
+						<p class="text-xs text-gray-500">Program created by Stage Page</p>
 					</div>
 				</div>
 			</div>
@@ -657,11 +633,11 @@
 	@keyframes bounce {
 		0%,
 		100% {
-			transform: translateY(-25%) translateX(-50%);
+			transform: translateY(-25%);
 			animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
 		}
 		50% {
-			transform: translateY(0) translateX(-50%);
+			transform: translateY(0);
 			animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
 		}
 	}
