@@ -15,8 +15,45 @@
   let prevBio = $derived(currentIndex > 0 ? bios[currentIndex - 1] : null);
   let progress = $derived(currentIndex >= 0 ? ((currentIndex + 1) / totalBios) * 100 : 0);
   
+  // Function to parse text and convert URLs to links
+  function parseLinks(text: string): string {
+    // Regular expression to match URLs with optional "See" prefix
+    const urlRegex = /(See\s+)?(https?:\/\/[^\s]+)/gi;
+    return text.replace(urlRegex, (match, seePrefix, url) => {
+      const prefix = seePrefix || '';
+      return `${prefix}<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-300 underline underline-offset-2 transition-colors duration-200">${url}</a>`;
+    });
+  }
 
 </script>
+
+<style>
+  /* Custom scrollbar styles */
+  .bio-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .bio-scroll::-webkit-scrollbar-track {
+    background: rgba(17, 24, 39, 0.5);
+    border-radius: 4px;
+  }
+  
+  .bio-scroll::-webkit-scrollbar-thumb {
+    background: rgba(75, 85, 99, 0.8);
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  
+  .bio-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(107, 114, 128, 0.9);
+  }
+  
+  /* Firefox scrollbar styles */
+  .bio-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(75, 85, 99, 0.8) rgba(17, 24, 39, 0.5);
+  }
+</style>
 
 <div class="min-h-screen bg-black text-white flex flex-col relative">
   <!-- Progress Bar -->
@@ -47,21 +84,26 @@
   <!-- Scrollable Content Area -->
   {#if bio}
     {#key currentSlug}
-      <div class="overflow-y-auto flex-1 pt-16 pb-24">
-        <div class="container mx-auto px-4">
-          <div class="max-w-4xl mx-auto">
+      <div class="flex-1 pt-16 pb-24 overflow-hidden">
+        <div class="container mx-auto px-4 h-full">
+          <div class="max-w-4xl mx-auto h-full">
             <!-- Bio content card -->
-            <div class="bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-gray-800">
+            <div class="bg-gray-900 bg-opacity-30 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-gray-800 flex flex-col max-h-[calc(100vh-12rem)] md:h-[calc(100vh-12rem)]">
               <!-- Header -->
-              <div class="text-center mb-8">
+              <div class="text-center mb-8 flex-shrink-0">
                 <h1 class="text-3xl md:text-4xl font-bold mb-2">{bio.name}</h1>
                 <p class="text-xl text-gray-300 font-light">{bio.role}</p>
               </div>
               
-              <hr class="border-gray-700 my-8">
+              <hr class="border-gray-700 my-8 flex-shrink-0">
               
-              <div class="prose prose-invert prose-lg max-w-none">
-                <p class="text-gray-300 leading-relaxed text-lg">{bio.bio}</p>
+              <!-- Scrollable bio text area -->
+              <div class="flex-1 overflow-y-auto pr-2 bio-scroll min-h-0 relative">
+                <div class="prose prose-invert prose-lg max-w-none">
+                  <p class="text-gray-300 leading-relaxed text-lg whitespace-pre-wrap">{@html parseLinks(bio.bio)}</p>
+                </div>
+                <!-- Fade gradient at bottom -->
+                <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-900/30 to-transparent pointer-events-none"></div>
               </div>
             </div>
           </div>
